@@ -1,4 +1,46 @@
 <mat-tab-group id="main-mat-tab-group">
-    <mat-tab label="PRÓXIMAS"> Próximas </mat-tab>
+    <mat-tab label="PRÓXIMAS">
+
+        <!-- Grid para as lives, configurações:
+            Layout Direction: row;
+            Alignment in Layout Direction (horizontal): start (default);
+            Alignment in Perpendicular Direction (vertical): center
+
+            https://tburleson-layouts-demos.firebaseapp.com/#/docs
+        -->
+        <div class="grid-lives" fxLayout="row" fxLayoutAlign="start center">
+
+            <!-- Segunda div usada para que, a cada live, um novo card seja criado-->
+            <div>
+
+                <!--EXPLICAÇÃO fxFlex
+                    fxFlex="0 1 calc(33.3% - 11px)" -> para telas grandes, serão exibidas 3 lives
+                    fxFlex.lt-md="0 1 calc(50% - 11px)" -> para telas medias, serão exibidas 2 lives
+                    fxFlex.lt-sm="100%" -> para telas pequenas, será exibida 1 live
+
+                        Os valores definidos definem em como esta div será dividida de acordo com o tamanho
+                    da tela.
+
+                        Para usar o fxFlex, instala-se a dependencia @angular/flex-layout
+                -->
+                <mat-card class="example-card"
+                fxFlex="0 1 calc(33.3% - 11px)"
+                fxFlex.lt-md="0 1 calc(50% - 11px)"
+                fxFlex.lt-sm="100%" 
+                >
+                    <mat-card-header>
+
+                    </mat-card-header>
+                    <mat-card-content>
+                      <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                      </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </mat-tab>
     <mat-tab label="REALIZADAS"> Realizadas </mat-tab>
 </mat-tab-group>

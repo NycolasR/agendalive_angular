@@ -3,3 +3,11 @@ mat-tab-group#main-mat-tab-group {
   padding-right: 2%;
   padding-top: 40px;
 }
+
+div.grid-lives {
+  padding: 2%;
+}
+
+div.grid-lives div {
+  margin: 0.5%;
+}
