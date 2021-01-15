@@ -1,0 +1,13 @@
+mat-toolbar-row#main-mat-toolbar-row {
+  font-size: 1.5rem;
+  height: 80px;
+  background-color: rgb(255, 29, 29);
+}
+
+span#title {
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
