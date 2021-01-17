@@ -4,10 +4,20 @@ mat-tab-group#main-mat-tab-group {
   padding-top: 40px;
 }
 
-div.grid-lives {
-  padding: 2%;
+.mat-card-live {
+  border: 1px solid #b34444;
+  border-radius: 4px 3px 6px / 2px 4px;
+  padding-top: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-bottom: 0%;
+  margin: 5px;
 }
 
-div.grid-lives div {
-  margin: 0.5%;
+.mat-card-title-live {
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-right: 15px;
+  margin-bottom: 0px;
+  min-height: 70px;
 }

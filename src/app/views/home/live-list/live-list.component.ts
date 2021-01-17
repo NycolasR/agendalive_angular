@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Live } from 'src/app/shared/model/live.model';
 import { LiveService } from 'src/app/shared/service/live.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-live-list',
@@ -36,11 +37,11 @@ export class LiveListComponent implements OnInit {
       console.log(this.livesPrevious);
     });
 
-    this.liveService.getLivesWithFlag('next').subscribe(data => {
-      this.livesNext = data.content;
+    //this.liveService.getLivesWithFlag('next').subscribe(data => {
+      //this.livesNext = data.content;
       // Será retornado uma paginação com as lives, daí o content.
-      console.log(this.livesNext);
-    });
+      //console.log(this.livesNext);
+    //});
   }
 
 }

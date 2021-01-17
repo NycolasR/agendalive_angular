@@ -1,6 +1,9 @@
 <mat-tab-group id="main-mat-tab-group">
     <mat-tab label="PRÓXIMAS">
 
+        
+    </mat-tab>
+    <mat-tab label="REALIZADAS">
         <!-- Grid para as lives, configurações:
             Layout Direction: row;
             Alignment in Layout Direction (horizontal): start (default);
@@ -8,10 +11,11 @@
 
             https://tburleson-layouts-demos.firebaseapp.com/#/docs
         -->
-        <div class="grid-lives" fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
 
-            <!-- Segunda div usada para que, a cada live, um novo card seja criado-->
-            <div>
+            <!-- Segundo componente usado para que, a cada live (no caso, livesPrevious), um novo card
+            seja criado e para que possa ser possível executar as definições de grid layout definidas -->
+            <ng-container *ngFor="let live of livesPrevious" style="padding: 0.5%;">
 
                 <!--EXPLICAÇÃO fxFlex
                     fxFlex="0 1 calc(33.3% - 11px)" -> para telas grandes, serão exibidas 3 lives
@@ -23,14 +27,28 @@
 
                         Para usar o fxFlex, instala-se a dependencia @angular/flex-layout
                 -->
-                <mat-card class="example-card"
-                fxFlex="0 1 calc(33.3% - 11px)"
+                <mat-card class="mat-card-live" fxFlex="0 1 calc(33.3% - 11px)"
                 fxFlex.lt-md="0 1 calc(50% - 11px)"
-                fxFlex.lt-sm="100%" 
-                >
-                    <mat-card-header>
+                fxFlex.lt-sm="100%">
 
-                    </mat-card-header>
+                    <mat-card-title class="mat-card-title-live">
+
+                        <!--Layout definido em linhas-->
+                        <div class="row">
+                            <!--Tag <p> para exibir o nome e a data da live. Devem estar dispostas na mesma linha-->
+                            <p>
+                                <span style="font-size: 0.9rem;" fxFlex="70%" fxLayoutAlign="start center">{{live.liveName}}</span>
+                                <span fxFlex="5%"></span>
+                                <span style="font-size: 0.7rem;" fxFlex="25%" fxLayoutAlign="end center">{{live.liveDate}}</span>
+                            </p>
+
+                            <p style="font-size: 0.7rem;">
+                                Canal: <span>{{live.channelName}}</span>
+                            </p>
+                        </div>
+                        
+                    </mat-card-title>
+
                     <mat-card-content>
                       <p>
                         The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -39,8 +57,7 @@
                       </p>
                     </mat-card-content>
                 </mat-card>
-            </div>
+            </ng-container>
         </div>
     </mat-tab>
-    <mat-tab label="REALIZADAS"> Realizadas </mat-tab>
 </mat-tab-group>
