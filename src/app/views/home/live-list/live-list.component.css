@@ -21,3 +21,9 @@ mat-tab-group#main-mat-tab-group {
   margin-bottom: 0px;
   min-height: 70px;
 }
+
+.mat-chip-date {
+  background-color: rgb(255, 29, 29) !important;
+  color: white !important;
+  border-radius: 10px;
+}
