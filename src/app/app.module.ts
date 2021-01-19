@@ -16,6 +16,9 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
@@ -41,7 +44,11 @@ import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form
     MatCardModule,
     FlexLayoutModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     LocalDateTimePipe

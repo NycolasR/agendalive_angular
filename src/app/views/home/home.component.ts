@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   addLive(): void {
     const dialogRef = this.dialog.open(LiveFormDialogComponent, {
-      width: '250px'
+      minWidth: '400px'
     });
 
     // Isto especifica o que acontece quando o diálogo for fechado,
