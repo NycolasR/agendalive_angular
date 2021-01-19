@@ -1,4 +1,36 @@
-<h1 mat-dialog-title>Hi user</h1>
+<h1 mat-dialog-title>Nova Live</h1>
+<div mat-dialog-content>
+  <!--
+    [formGroup]="liveForm" -> especificando o form group relacionando-o
+    a este form.
+  -->
+  <form class="example-form" [formGroup]="liveForm">
+    <!--NomeLive, NomeCanal e Link-->
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome da Live</mat-label>
+      <!--
+        formControlName="liveName" -> dentro das aspas,
+        vai o nome do parâmetro definido dentro do liveForm
+      -->
+      <input matInput formControlName="liveName" name="liveName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome do Canal</mat-label>
+      <input matInput formControlName="channelName" name="channelName">
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Link Completo</mat-label>
+      <input matInput formControlName="liveLink" name="liveLink">
+    </mat-form-field>
+
+  </form>
+</div>
+
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="crateLive()">Adicionar</button>
+  <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
 </div>
