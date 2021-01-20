@@ -1,6 +1,11 @@
 <mat-tab-group id="main-mat-tab-group">
     <mat-tab label="PRÓXIMAS">
-        <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+
+        <!--*ngIf="!next" para que só apareça quando next for false, ou seja, as lives não estejam carregadas ainda-->
+        <mat-progress-bar *ngIf="!next" mode="indeterminate"></mat-progress-bar>
+
+        <!--*ngIf="next" para que só apareça quando next for true, ou seja, as lives já estiverem carregadas-->
+        <div *ngIf="next" fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
             <ng-container *ngFor="let live of livesNext" style="padding: 0.5%;">
                 <mat-card class="mat-card-live" fxFlex="0 1 calc(33.3% - 11px)"
                 fxFlex.lt-md="0 1 calc(50% - 11px)"
@@ -42,6 +47,9 @@
         </div>
     </mat-tab>
     <mat-tab label="REALIZADAS">
+        <!--*ngIf="!previous" para que só apareça quando previous for false, ou seja, as lives não estejam carregadas ainda-->
+        <mat-progress-bar *ngIf="!previous" mode="indeterminate"></mat-progress-bar>
+
         <!-- Grid para as lives, configurações:
             Layout Direction: row;
             Alignment in Layout Direction (horizontal): start (default);
@@ -49,7 +57,8 @@
 
             https://tburleson-layouts-demos.firebaseapp.com/#/docs
         -->
-        <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+        <!--*ngIf="previous" para que só apareça quando previous for true, ou seja, as lives já estiverem carregadas-->
+        <div *ngIf="previous" fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
 
             <!-- Segundo componente usado para que, a cada live (no caso, livesPrevious), um novo card
             seja criado e para que possa ser possível executar as definições de grid layout definidas -->

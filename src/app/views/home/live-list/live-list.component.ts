@@ -16,6 +16,11 @@ export class LiveListComponent implements OnInit {
   // Lives que já ainda não aconteceram
   livesNext: Live[];
 
+  // Variáveis de controle para manipulação
+  // do componente de loading (progress bar)
+  next: boolean = false;
+  previous: boolean = false;
+
   constructor(
     public liveService: LiveService,
     public sanitizer: DomSanitizer // 
@@ -34,8 +39,8 @@ export class LiveListComponent implements OnInit {
     // this.liveService.getLivesWithFlag('previous') retornará um observable;
     // No subscribe() é definido o que acontece com os dados provenientes da requisição
     this.liveService.getLivesWithFlag('previous').subscribe(data => {
-      this.livesPrevious = data.content;
       // Será retornado uma paginação com as lives, daí o content.
+      this.livesPrevious = data.content;
       console.log(this.livesPrevious);
 
       // Para cada live dentro da listagem, está sendo
@@ -49,16 +54,20 @@ export class LiveListComponent implements OnInit {
         */
         live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.liveLink);
       });
+      // Será true quando as lives que já ocorreram forem carregadas
+      this.previous = true;
     });
 
     this.liveService.getLivesWithFlag('next').subscribe(data => {
-      this.livesNext = data.content;
       // Será retornado uma paginação com as lives, daí o content.
+      this.livesNext = data.content;
       console.log(this.livesNext);
 
       this.livesNext.forEach(live => {
         live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.liveLink);
       });
+      // Será true quando as lives que irão ocorrer forem carregadas
+      this.next = true;
     });
     //});
   }
