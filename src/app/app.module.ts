@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
@@ -48,7 +49,8 @@ import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form
     MatInputModule,
     MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule
   ],
   providers: [
     LocalDateTimePipe
